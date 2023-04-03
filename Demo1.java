@@ -1,20 +1,22 @@
-//how to acces the non static main method in different class
+package com.jsp.pkg2;
+import com.jsp.pkg.*;
 
-class sample{
-        /// called by main()
-    public  void test()
-    {
-        System.out.println("java");
-    }
+public class Demo1 {
+	// different class different package
+	public static void main(String[] args) {
+		Sample s1 = new Sample();
+		System.out.println(s1.i);
+	//	System.out.println(s1.i1); protected can not be accessed.
+    //  System.out.println(s1.i2); package level can not be accessed.
+	//	System.out.println(s1.i3);  private can not be accessed.
+		s1.test();
+	// s1.test1(); protected can not be accessed
+	// s1.test2(); package can not be accessed.
+	// s1.test3(); private can not be accessed.
+	}
+
 }
-
-class  Demo1{
-    public static void main(String[] args) {
-        /// call the test() method
-        // Non-static member present in different class:---> [new className.MemberName()]
-        new sample().test(); // ---> we are using  Object creation concept
-    }
-}
-
-
-//Output:  java
+/*
+1
+public
+ */
